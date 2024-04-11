@@ -17,7 +17,7 @@ import com.mongodb.client.MongoDatabase;
 import edu.escuelaing.arem.ASE.app.Ticket;
 
 public class MongoDBConfig {
-    private static final String CONNECTION_STRING = "mongodb://localhost:27017";
+    private static final String CONNECTION_STRING = "mongodb://pruebas:27017";
     private static final String DATABASE_NAME = "logDB";
     private static final String COLLECTION_NAME = "tickets";
 
@@ -51,13 +51,13 @@ public static void guardarTicketEnBaseDeDatos(Ticket ticket) {
     try {
         
         Document document = new Document("id", ticket.getId()) // Agregar el ID al documento
-                .append("dueñoMarca", ticket.getDueñoMarca())
+                .append("duenoMarca", ticket.getDuenoMarca())
                 .append("url", ticket.getURL())
                 .append("estado", ticket.getEstado())
                 .append("fechaCreacion", ticket.getFechaCreacion())
                 .append("proveedor", ticket.getProveedor())
                 .append("correoProveedor", ticket.getCorreoProveedor())
-                .append("correoDueñoMarca", ticket.getCorreoDueñoMarca());
+                .append("correoDuenoMarca", ticket.getCorreoDuenoMarca());
                 
         collection.insertOne(document);
     } catch (MongoTimeoutException e) {

@@ -31,12 +31,12 @@ public class CrearTicketController {
                 if (!url.isEmpty()) { // Verificar si la URL no está vacía
                     Ticket ticket = new Ticket();
                     ticket.setId(++ticketId); // Incrementar y asignar el nuevo ID único
-                    ticket.setDueñoMarca("Bancolombia"); // Establecer proveedor
+                    ticket.setDuenoMarca("Bancolombia"); // Establecer proveedor
                     ticket.setURL(url); // Establecer URL 
                     ticket.setEstado("Nuevo"); // Estado por defecto: Nuevo
                     ticket.setCorreoProveedor("sergio.gv.9@hotmail.com"); // Establecer correo del proveedor
                     ticket.setProveedor("cloudflare"); // Establecer dueño de marca
-                    ticket.setCorreoDueñoMarca("sergio.gonzalez-v@mail.escuelaing.edu.co");
+                    ticket.setCorreoDuenoMarca("sergio.gonzalez-v@mail.escuelaing.edu.co");
                     MongoDBConfig.guardarTicketEnBaseDeDatos(ticket); // Guardar en la base de datos
                     eliminarTicketLocal(ticket); // Eliminar de la lista local de tickets (si aplica)
                 }
@@ -78,9 +78,9 @@ public class CrearTicketController {
     try {
         MongoDBConfig.actualizarEstadoDelTicket(id, nuevoEstado);
         if (nuevoEstado.equals("Espera de confirmacion")) {
-            String correoDueñoMarca = "sergio.gv.9@hotmail.com";
+            String correoDuenoMarca = "sergio.gv.9@hotmail.com";
             String mensaje = "Saludo, \nEl contenido de esta URL \n"+ url +"\nNos pareció de carácter sospechoso, ¿procedemos con la eliminación de la página?";
-            CorreoService.enviarCorreo(correoDueñoMarca, "Encontramos una pagina maliciosa", mensaje);
+            CorreoService.enviarCorreo(correoDuenoMarca, "Encontramos una pagina maliciosa", mensaje);
         }
         else if (nuevoEstado.equals("Aceptado")) {
             String correoProveedor = "sergio.gv.9@hotmail.com";

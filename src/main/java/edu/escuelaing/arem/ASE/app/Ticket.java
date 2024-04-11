@@ -4,13 +4,13 @@ import java.util.Date;
 
 public class Ticket {
     private int id;
-    private String dueñoMarca;
+    private String duenoMarca;
     private String url;
     private String estado;
     private Date fechaCreacion;
     private String proveedor;
     private String correoProveedor;
-    private String correoDueñoMarca;
+    private String correoDuenoMarca;
 
     public Ticket() {
         this.fechaCreacion = new Date();
@@ -24,12 +24,12 @@ public class Ticket {
         this.id = id;
     }
 
-    public String getDueñoMarca() {
-        return dueñoMarca;
+    public String getDuenoMarca() {
+        return duenoMarca;
     }
 
-    public void setDueñoMarca(String dueñoMarca) {
-        this.dueñoMarca = dueñoMarca;
+    public void setDuenoMarca(String duenoMarca) {
+        this.duenoMarca = duenoMarca;
     }
 
     public String getCorreoProveedor() {
@@ -40,12 +40,12 @@ public class Ticket {
         this.correoProveedor = correoProveedor;
     }
 
-    public String getCorreoDueñoMarca() {
-        return correoDueñoMarca;
+    public String getCorreoDuenoMarca() {
+        return correoDuenoMarca;
     }
 
-    public void setCorreoDueñoMarca(String correoDueñoMarca) {
-        this.correoDueñoMarca = correoDueñoMarca;
+    public void setCorreoDuenoMarca(String correoDuenoMarca) {
+        this.correoDuenoMarca = correoDuenoMarca;
     }
 
     public String getProveedor() {
